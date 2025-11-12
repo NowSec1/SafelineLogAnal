@@ -6,7 +6,7 @@
 
 - 首选分析 Excel `AU` 列（列名 `payload`）中的攻击负载内容。
 - 如果 `payload` 列不存在，则回退分析 `C` 列（列名 `website`）中的 URL。
-- 通过内置的多种攻击特征（SQL 注入、XSS、命令执行、目录遍历等）识别真实攻击。
+- 通过内置的多种攻击特征（SQL 注入、XSS、CSRF、SSRF、拒绝服务、反序列化、命令/代码执行、模板注入、文件相关攻击、权限绕过、扫描器、信息泄露、XXE、XPath、格式化字符串、缓冲区溢出、条件竞争等）识别真实攻击。
 - 为每条告警生成分析结果，包括是否为恶意以及命中的特征描述。
 - 自动导出疑似误报/正常业务的告警到新的 Excel 文件，便于人工复核。
 
@@ -49,5 +49,5 @@ benign_df.to_excel("suspected_false_positives.xlsx", index=False)
 ## 测试
 
 ```bash
-python -m unittest
+python -m unittest discover -s tests
 ```
